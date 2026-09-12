@@ -10,7 +10,21 @@ export const KagglePortal: React.FC = () => {
     title: "UNZA 2025/26 CSC 4792 — Siavonga Town Council Dataset",
     id: "group48/unza-csc4792-siavonga-town-council",
     licenses: [{ name: "CC-BY-4.0" }],
-    keywords: ["zambia", "local-government", "cdf", "public-finance", "devolution", "siavonga"],
+    keywords: ["zambia", "local-government", "cdf", "public-finance", "devolution", "siavonga", "open-data"],
+    collaborators: [
+      {
+        name: "Bornface Kangombe",
+        role: "Lead Author / Student Researcher",
+        computer_number: "2022064526",
+        email: "bornface.kangombe@cs.unza.zm",
+        group: "48"
+      }
+    ],
+    organization: {
+      name: "University of Zambia (UNZA)",
+      department: "Department of Computing and Infomatics",
+      course: "CSC 4792: Data Mining & Warehousing"
+    },
     description: "Curated dataset containing Constituency Development Fund (CDF) allocations, Zambia Devolution Support Programme (ZDSP) infrastructure projects, and financial disclosures for Siavonga Town Council, Southern Province, Zambia."
   };
 
@@ -132,13 +146,23 @@ export const KagglePortal: React.FC = () => {
             <h3 className="text-xs font-bold text-stone-900 uppercase tracking-wider font-mono">
               dataset-metadata.json
             </h3>
-            <button
-              onClick={copyMetadata}
-              className="inline-flex items-center gap-1 text-xs text-stone-600 hover:text-stone-900 font-medium"
-            >
-              {copiedMeta ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>{copiedMeta ? "Copied" : "Copy JSON"}</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <a
+                href="/downloads/dataset-metadata.json"
+                download="dataset-metadata.json"
+                className="inline-flex items-center gap-1 text-xs text-emerald-700 hover:text-emerald-800 font-medium"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Download</span>
+              </a>
+              <button
+                onClick={copyMetadata}
+                className="inline-flex items-center gap-1 text-xs text-stone-600 hover:text-stone-900 font-medium"
+              >
+                {copiedMeta ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copiedMeta ? "Copied" : "Copy"}</span>
+              </button>
+            </div>
           </div>
           <pre className="p-3 bg-stone-900 text-stone-100 rounded-lg text-xs font-mono overflow-x-auto max-h-56 leading-relaxed">
             {JSON.stringify(kaggleMetadataJson, null, 2)}

@@ -1,1 +1,70 @@
 @import "tailwindcss";
+
+/* Dedicated Print Stylesheet for Academic and Physical Submissions */
+@media print {
+  /* Hide interactive chrome: navigation header, export dropdowns, download sections, search filters, action bars */
+  header,
+  nav,
+  button,
+  .no-print,
+  [data-print-hide="true"] {
+    display: none !important;
+  }
+
+  /* Reset layout constraints and backgrounds for crisp black-and-white printing */
+  body,
+  html,
+  #root {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 1.5cm !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure tables and code blocks print completely without cutoffs */
+  pre,
+  table,
+  blockquote {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  th, td {
+    border: 1px solid #d1d5db !important;
+    padding: 6px 8px !important;
+    color: #111827 !important;
+  }
+
+  /* Expand borders cleanly and remove shadow artifacts */
+  .shadow-xs,
+  .shadow-2xs,
+  .shadow-md,
+  .shadow-lg {
+    box-shadow: none !important;
+  }
+
+  .border {
+    border-color: #e5e7eb !important;
+  }
+
+  /* Preserve link readability where necessary */
+  a {
+    text-decoration: underline !important;
+    color: #111827 !important;
+  }
+}

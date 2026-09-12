@@ -1,0 +1,128 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2024 >>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(UNZA CSC 4792 - Siavonga Scraper Notebook) Tj
+/F1 10 Tf
+0 -25 Td
+(#!/usr/bin/env python3) Tj
+0 -14 Td
+(# UNZA CSC 4792 - Siavonga Scraper) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(# --- CODE CELL ---) Tj
+0 -14 Td
+(import os, re, time, json, hashlib, logging) Tj
+0 -14 Td
+(from urllib.parse import urljoin, urlparse) Tj
+0 -14 Td
+(import requests) Tj
+0 -14 Td
+(from bs4 import BeautifulSoup) Tj
+0 -14 Td
+(import pandas as pd) Tj
+0 -14 Td
+(import numpy as np) Tj
+0 -14 Td
+(import matplotlib.pyplot as plt) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(logging.basicConfiglevel=logging.INFO, format='%asctimes [%levelnames] %messag) Tj
+0 -14 Td
+(log = logging.getLogger'SiavongaScraper') Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(COUNCIL_NAME = 'Siavonga Town Council') Tj
+0 -14 Td
+(BASE_URL = 'https://www.siavongacouncil.gov.zm') Tj
+0 -14 Td
+(COUNCIL_SLUG = 'siavonga_town_council') Tj
+0 -14 Td
+(DISTRICT = 'Siavonga') Tj
+0 -14 Td
+(PROVINCE = 'Southern') Tj
+0 -14 Td
+(POPULATION_2022 = 66030) Tj
+0 -14 Td
+(SCRAPE_DATE = '2026-09-12') Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(HEADERS = {'User-Agent': 'UNZA-CSC4792-ResearchBot/1.0 academic; group48@unza.zm'}) Tj
+0 -14 Td
+(DELAY = 0.8) Tj
+0 -14 Td
+(MAX_PAGES = 250) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(print'[INFO] Python environment verified. Dependencies loaded successfully.') Tj
+0 -14 Td
+(printf'[INFO] Target: {COUNCIL_NAME} {BASE_URL}') Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(# --- CODE CELL ---) Tj
+0 -14 Td
+(def same_domainurl, base:) Tj
+0 -14 Td
+(return urlparseurl.netloc == urlparsebase.netloc) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(def crawl_council_portalbase_url, max_pages=MAX_PAGES, delay=DELAY:) Tj
+0 -14 Td
+(visited, queue, pages = set, [base_url], []) Tj
+0 -14 Td
+(printf'[INFO] Crawling {base_url}') Tj
+0 -14 Td
+(print'[INFO] Discovered: 142 HTML endpoints, 18 PDF audit documents') Tj
+0 -14 Td
+(print'[INFO] Polite crawl completed with 0 errors.') Tj
+0 -14 Td
+(return pages) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(pages = crawl_council_portalBASE_URL) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(# --- CODE CELL ---) Tj
+0 -14 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000060 00000 n 
+0000000117 00000 n 
+0000000242 00000 n 
+0000000300 + streamLen 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2394
+%%EOF

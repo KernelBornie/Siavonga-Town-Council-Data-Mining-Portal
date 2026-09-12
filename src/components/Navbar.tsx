@@ -1,5 +1,6 @@
-import React from "react";
-import { Database, BookOpen, FileText, Globe, CheckCircle2, Download, ExternalLink } from "lucide-react";
+import React, { useRef } from "react";
+import { Database, BookOpen, FileText, Globe, CheckCircle2, ExternalLink } from "lucide-react";
+import { NotebookExportDropdown } from "./NotebookExportDropdown";
 
 export type ActiveTab = "datasets" | "notebook" | "paper" | "kaggle" | "compliance";
 
@@ -9,13 +10,39 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
-  const tabs = [
+  const tabs: { id: ActiveTab; label: string; icon: React.ComponentType<{ className?: string }>; badge?: string }[] = [
     { id: "datasets", label: "Datasets & Warehouse", icon: Database, badge: "5 CSVs" },
     { id: "notebook", label: "Jupyter Notebook", icon: BookOpen, badge: ".ipynb" },
     { id: "paper", label: "Data in Brief Paper", icon: FileText, badge: "Elsevier" },
     { id: "kaggle", label: "Kaggle Package", icon: Globe, badge: "CC BY 4.0" },
-    { id: "compliance", label: "Submission & Rubric", icon: CheckCircle2, badge: "100/100" }
+    { id: "compliance", label: "About Submission", icon: CheckCircle2 }
   ];
+
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Keyboard navigation for tab switching (ArrowLeft, ArrowRight, Home, End)
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, currentIndex: number) => {
+    let nextIndex = -1;
+
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      nextIndex = (currentIndex + 1) % tabs.length;
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      nextIndex = 0;
+    } else if (e.key === "End") {
+      e.preventDefault();
+      nextIndex = tabs.length - 1;
+    }
+
+    if (nextIndex !== -1) {
+      setActiveTab(tabs[nextIndex].id);
+      tabRefs.current[nextIndex]?.focus();
+    }
+  };
 
   return (
     <header className="border-b border-stone-200 bg-white sticky top-0 z-40 shadow-xs">
@@ -52,27 +79,31 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
 
-            <a
-              href="/downloads/db-unza26-csc4792-siavonga_scraper.ipynb"
-              download="db-unza26-csc4792-siavonga_scraper.ipynb"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 px-3 py-1.5 rounded-md shadow-xs transition-colors"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Export .ipynb</span>
-            </a>
+            <NotebookExportDropdown />
           </div>
         </div>
 
-        {/* Navigation tabs */}
-        <nav className="flex space-x-1 sm:space-x-4 overflow-x-auto py-2 scrollbar-none">
-          {tabs.map((tab) => {
+        {/* Navigation tabs with full keyboard arrow navigation support */}
+        <nav
+          role="tablist"
+          aria-label="Application Sections"
+          className="flex space-x-1 sm:space-x-4 overflow-x-auto py-2 scrollbar-none"
+        >
+          {tabs.map((tab, index) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as ActiveTab)}
-                className={`flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-all ${
+                ref={(el) => (tabRefs.current[index] = el)}
+                role="tab"
+                id={`tab-${tab.id}`}
+                aria-selected={isActive}
+                aria-controls={`panel-${tab.id}`}
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => setActiveTab(tab.id)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
+                className={`flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-all focus:outline-none focus:ring-2 focus:ring-emerald-700 focus:ring-offset-1 ${
                   isActive
                     ? "bg-emerald-50 text-emerald-800 border-b-2 border-emerald-700 font-semibold shadow-2xs"
                     : "text-stone-600 hover:text-stone-900 hover:bg-stone-50"

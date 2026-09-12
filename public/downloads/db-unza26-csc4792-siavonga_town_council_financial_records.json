@@ -1,0 +1,112 @@
+[
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/financial-reports-2024/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "LGEF",
+    "description": "Annual Local Government Equalisation Fund (LGEF) recurrent grant allocation pursuant to Act No. 28 of 2023 for staff payroll and operational stability",
+    "raw_amount": "K14,250,000",
+    "amount_zmw": "14250000",
+    "fiscal_year": "2024"
+  },
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/financial-reports-2025/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "LGEF",
+    "description": "Projected annual LGEF recurrent operational grant allocation",
+    "raw_amount": "K16,800,000",
+    "amount_zmw": "16800000",
+    "fiscal_year": "2025"
+  },
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/approved-budget-2024/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "Budget",
+    "description": "Full approved civic operating and capital expenditure budget for the financial year ending 31st December 2024",
+    "raw_amount": "K42.6 million",
+    "amount_zmw": "42600000",
+    "fiscal_year": "2024"
+  },
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/approved-budget-2025/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "Budget",
+    "description": "Approved civic revenue and expenditure estimates incorporating enhanced CDF ceilings and devolution grants",
+    "raw_amount": "K51.3 million",
+    "amount_zmw": "51300000",
+    "fiscal_year": "2025"
+  },
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/locally-generated-revenue-report/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "Revenue/Levy",
+    "description": "Locally generated revenue from Lake Kariba commercial fishing vessels, rig licenses, and kapenta fish levy",
+    "raw_amount": "K3,450,000",
+    "amount_zmw": "3450000",
+    "fiscal_year": "2024"
+  },
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/locally-generated-revenue-report/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "Revenue/Levy",
+    "description": "Hospitality, lodge tourism bed levy, and conference center municipal taxes",
+    "raw_amount": "K1,890,000",
+    "amount_zmw": "1890000",
+    "fiscal_year": "2024"
+  },
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/locally-generated-revenue-report/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "Revenue/Rates",
+    "description": "Property rates billed on commercial, residential and industrial valuation rolls",
+    "raw_amount": "K4,120,000",
+    "amount_zmw": "4120000",
+    "fiscal_year": "2024"
+  },
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/locally-generated-revenue-report/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "Revenue/Fees",
+    "description": "Market stall fees, bus station toll fees, and business trading permits",
+    "raw_amount": "K1,140,000",
+    "amount_zmw": "1140000",
+    "fiscal_year": "2024"
+  },
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/cdf-allocation-2024/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "CDF",
+    "description": "Constituency Development Fund statutory allocation for Siavonga Constituency",
+    "raw_amount": "K30.6 million",
+    "amount_zmw": "30600000",
+    "fiscal_year": "2024"
+  },
+  {
+    "source_url": "https://www.siavongacouncil.gov.zm/cdf-allocation-2026/",
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "province": "Southern",
+    "category": "CDF",
+    "description": "Statutory CDF increment under the Local Government (Amendment) Act No. 76 of 2026",
+    "raw_amount": "K40 million",
+    "amount_zmw": "40000000",
+    "fiscal_year": "2026"
+  }
+]

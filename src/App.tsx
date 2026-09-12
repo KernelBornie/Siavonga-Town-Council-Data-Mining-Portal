@@ -5,6 +5,7 @@ import { NotebookViewer } from "./components/NotebookViewer";
 import { PaperViewer } from "./components/PaperViewer";
 import { KagglePortal } from "./components/KagglePortal";
 import { SubmissionCompliance } from "./components/SubmissionCompliance";
+import { DownloadDeliverables } from "./components/DownloadDeliverables";
 import { DATASET_SUMMARY } from "./data/datasets";
 import { Download, ExternalLink, GraduationCap, MapPin, Scale } from "lucide-react";
 
@@ -48,12 +49,15 @@ export default function App() {
       </div>
 
       {/* Main Tab Content */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
         {activeTab === "datasets" && <DatasetExplorer />}
         {activeTab === "notebook" && <NotebookViewer />}
         {activeTab === "paper" && <PaperViewer />}
         {activeTab === "kaggle" && <KagglePortal />}
         {activeTab === "compliance" && <SubmissionCompliance />}
+
+        {/* Global Download Deliverables Section */}
+        <DownloadDeliverables />
       </main>
 
       {/* Academic Footer */}
@@ -61,23 +65,23 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-stone-600">
             <div>
-              <div className="font-bold text-stone-900 text-sm mb-2">Academic Accreditation</div>
+              <div className="font-bold text-stone-900 text-sm mb-2">Project Overview</div>
               <p className="leading-relaxed text-stone-600">
-                Developed for <strong>CSC 4792: Data Mining and Warehousing</strong> at the University of Zambia. Supervised under the local government data mining project syllabus (September 4, 2026).
+                Data Mining and Warehousing (CSC 4792) coursework project for <strong>Siavonga Town Council</strong> (Team #48), University of Zambia, Department of Computing and Infomatics.
               </p>
               <div className="mt-2 text-[11px] text-stone-600">
-                Assigned Council: <strong>Siavonga Town Council</strong> (Team #48)
+                District: <strong>Siavonga</strong> • Province: <strong>Southern</strong>
               </div>
             </div>
 
             <div>
-              <div className="font-bold text-stone-900 text-sm mb-2">Mandatory Spec Conformity</div>
+              <div className="font-bold text-stone-900 text-sm mb-2">Dataset Specifications</div>
               <ul className="space-y-1 text-stone-600">
-                <li>• Pipe (<code className="font-mono text-stone-800">|</code>) column separator enforced</li>
+                <li>• Delimiter: Pipe (<code className="font-mono text-stone-800">|</code>) column separator</li>
                 <li>• Naming: <code className="font-mono text-stone-800">db-unza26-csc4792-[DESCRIPTION].csv</code></li>
-                <li>• Elsevier Data in Brief journal formatting</li>
-                <li>• Exemplar Kaggle documentation (Phiri, 2026)</li>
-                <li>• Full GitHub reproducibility pipeline (.ipynb)</li>
+                <li>• Structure: 5 relational CSV files, UTF-8 encoded</li>
+                <li>• Formats: CSV, JSON, XLSX, Markdown, HTML</li>
+                <li>• Reproducibility: Standalone Jupyter scraper (.ipynb)</li>
               </ul>
             </div>
 

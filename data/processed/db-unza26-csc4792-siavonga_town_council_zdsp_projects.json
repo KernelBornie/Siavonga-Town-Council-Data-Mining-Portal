@@ -1,0 +1,67 @@
+[
+  {
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "project_name": "Construction of Modern Chimutengo Market with Cold Chain Storage",
+    "status": "Procurement stage completed; civil ground clearance commenced",
+    "source_of_fin": "ZDSP (World Bank Devolution Grant)",
+    "start_date": "2024-03-15",
+    "end_date": "2025-06-30",
+    "total_cost_raw": "K3,000,000",
+    "total_cost_zmw": "3000000",
+    "coordinates": "16°31'42.1\"S 28°42'19.5\"E (UTM: 682789, 8171331)",
+    "source_url": "https://www.siavongacouncil.gov.zm/zdsp/"
+  },
+  {
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "project_name": "Rehabilitation and Modernization of Siavonga Central Bus Station",
+    "status": "Contract awarded; sub-base compaction ongoing",
+    "source_of_fin": "ZDSP Performance Grant",
+    "start_date": "2024-05-10",
+    "end_date": "2025-03-31",
+    "total_cost_raw": "K2,450,000",
+    "total_cost_zmw": "2450000",
+    "coordinates": "16°32'04.8\"S 28°42'45.2\"E (UTM: 683560, 8170640)",
+    "source_url": "https://www.siavongacouncil.gov.zm/zdsp/"
+  },
+  {
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "project_name": "Civic Center Digital Infrastructure and Electronic Land Revenue Upgrade",
+    "status": "Active implementation; server installation complete",
+    "source_of_fin": "ZDSP Institutional Capacity Building Window",
+    "start_date": "2024-02-01",
+    "end_date": "2024-11-30",
+    "total_cost_raw": "K1,200,000",
+    "total_cost_zmw": "1200000",
+    "coordinates": "16°32'18.4\"S 28°42'32.0\"E (UTM: 683170, 8170220)",
+    "source_url": "https://www.siavongacouncil.gov.zm/zdsp/"
+  },
+  {
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "project_name": "Establishment of Siavonga District Modern Abattoir and Fish Handling Shed",
+    "status": "Feasibility and Environmental Impact Assessment approved",
+    "source_of_fin": "ZDSP Capital Grant",
+    "start_date": "2024-08-01",
+    "end_date": "2025-10-31",
+    "total_cost_raw": "K2,800,000",
+    "total_cost_zmw": "2800000",
+    "coordinates": "16°33'05.1\"S 28°41'50.4\"E (UTM: 681940, 8168780)",
+    "source_url": "https://www.siavongacouncil.gov.zm/zdsp/"
+  },
+  {
+    "council": "Siavonga Town Council",
+    "district": "Siavonga",
+    "project_name": "Constructing Storm Water Drainage and Erosion Control in Lake View Ward",
+    "status": "65% Civil works completed",
+    "source_of_fin": "ZDSP Climate Resilient Infrastructure Fund",
+    "start_date": "2023-10-15",
+    "end_date": "2024-09-30",
+    "total_cost_raw": "K1,750,000",
+    "total_cost_zmw": "1750000",
+    "coordinates": "16°31'55.0\"S 28°43'10.2\"E (UTM: 684310, 8170940)",
+    "source_url": "https://www.siavongacouncil.gov.zm/zdsp/"
+  }
+]

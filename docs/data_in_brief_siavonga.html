@@ -1,4 +1,4 @@
-# A Curated Dataset of Constituency Development Fund, Devolution Support Programme, and Financial Disclosures for Siavonga Town Council, Zambia
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Data in Brief - Siavonga Town Council</title><style>body{font-family:Georgia,serif;max-width:860px;margin:40px auto;padding:0 20px;line-height:1.6;color:#222;}table{border-collapse:collapse;width:100%;margin:20px 0;}th,td{border:1px solid #ccc;padding:8px 12px;text-align:left;}th{background:#f4f4f4;}code{background:#f0f0f0;padding:2px 4px;border-radius:4px;font-size:0.9em;}</style></head><body><pre style="white-space:pre-wrap;font-family:inherit;"># A Curated Dataset of Constituency Development Fund, Devolution Support Programme, and Financial Disclosures for Siavonga Town Council, Zambia
 
 **Project Team #48**
 
@@ -35,7 +35,7 @@ This article presents a curated, machine-readable dataset capturing public finan
 | **Parameters for Data Collection** | Domain-bounded crawl of `siavongacouncil.gov.zm` (crawl depth $\le$ 3, max 250 endpoints, politeness rate limit of 0.8 seconds per request, academic User-Agent header) |
 | **Description of Data Collection** | Recursive breadth-first search traversing civic disclosures, project status reports, gazetted council resolutions, tender notices, and news bulletins |
 | **Data Source Location** | Siavonga District, Southern Province, Republic of Zambia (Latitude: -16.5381°, Longitude: 28.7089°) |
-| **Data Accessibility** | Repository: Kaggle Dataset (`unza-csc4792-siavonga`)<br>Direct URL: `https://www.kaggle.com/datasets/group48/unza-csc4792-siavonga-town-council`<br>GitHub Repository: Committed with standardised commit history |
+| **Data Accessibility** | Repository: Kaggle Dataset (`unza-csc4792-siavonga`)&lt;br&gt;Direct URL: `https://www.kaggle.com/datasets/group48/unza-csc4792-siavonga-town-council`&lt;br&gt;GitHub Repository: Committed with standardised commit history |
 | **Related Research Article** | Phiri, L. (2026). *A Multi-Source Dataset for CS1 Failure Prediction* [Dataset]. Kaggle. |
 
 ---
@@ -107,7 +107,7 @@ In addition, a word-number mapping dictionary parses colloquial formulations (e.
 
 ### 4.3. Data Cleansing & Validation Pipeline
 1. **Purity Enforcement:** String fields are scrubbed of unescaped pipe (`|`) characters and carriage returns to preserve tabular integrity.
-2. **Numeric Type Coercion:** All financial amounts are verified strictly positive ($> 0$).
+2. **Numeric Type Coercion:** All financial amounts are verified strictly positive ($&gt; 0$).
 3. **Deduplication:** Composite primary keys (`source_url`, `amount_zmw`) eliminate redundant duplicate postings.
 4. **Export:** Files are saved using UTF-8 encoding with the mandatory naming schema `db-unza26-csc4792-[DESCRIPTION].csv`.
 
@@ -142,3 +142,4 @@ The authors acknowledge Mr. Lighton Phiri, Course Instructor for CSC 4792 (Data 
 4. Phiri, L. (2026). *A Multi-Source Dataset for CS1 Failure Prediction* [Dataset]. Kaggle.
 5. Republic of Zambia. (n.d.). Ministry of Local Government and Rural Development.
 6. Siavonga Town Council. (2026). Official Municipal Portal. https://www.siavongacouncil.gov.zm
+</pre></body></html>

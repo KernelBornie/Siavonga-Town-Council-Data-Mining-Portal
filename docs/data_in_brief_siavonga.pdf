@@ -1,0 +1,110 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1952 >>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(Data in Brief - Siavonga Town Council CSC 4792) Tj
+/F1 10 Tf
+0 -25 Td
+(# A Curated Dataset of Constituency Development Fund, Devolution Support Programme, and Fi) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(**Project Team #48**) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(**Bornface Kangombe**) Tj
+0 -14 Td
+(Computer Number: 2022064526) Tj
+0 -14 Td
+(Email: bornface.kangombe@cs.unza.zm) Tj
+0 -14 Td
+(Group: 48) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(Department of Computing and Infomatics, School of Natural Sciences,) Tj
+0 -14 Td
+(The University of Zambia, Great East Road Campus,) Tj
+0 -14 Td
+(P.O. Box 32379, Lusaka, Zambia) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(**Corresponding author:** bornface.kangombe@cs.unza.zm) Tj
+0 -14 Td
+(**Target Journal:** *Data in Brief* Elsevier) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(---) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## Abstract) Tj
+0 -14 Td
+(This article presents a curated, machine-readable dataset capturing public financial alloc) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(**Keywords:** Constituency Development Fund; CDF; Zambia; Local Government; Fiscal Decentr) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(---) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(## Specifications Table) Tj
+0 -14 Td
+() Tj
+0 -14 Td
+(| Parameter | Description |) Tj
+0 -14 Td
+(| :--- | :--- |) Tj
+0 -14 Td
+(| **Subject** | Social Sciences, Computer Science, Public Administration & Governance |) Tj
+0 -14 Td
+(| **Specific Subject Area** | Sub-national Public Financial Management, Municipal Warehous) Tj
+0 -14 Td
+(| **Type of Data** | Machine-readable tabular datasets CSV format, pipe `|` delimited) Tj
+0 -14 Td
+(| **How the Data Were Acquired** | Automated Python-based polite crawler `requests`, `Be) Tj
+0 -14 Td
+(| **Data Format** | Raw scraped text corpus, cleaned and normalised tabular datasets UTF) Tj
+0 -14 Td
+(| **Parameters for Data Collection** | Domain-bounded crawl of `siavongacouncil.gov.zm` ) Tj
+0 -14 Td
+(| **Description of Data Collection** | Recursive breadth-first search traversing civic dis) Tj
+0 -14 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000060 00000 n 
+0000000117 00000 n 
+0000000242 00000 n 
+0000000300 + streamLen 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2322
+%%EOF

@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import { PAPER_SPEC_TABLE, PAPER_VALUE_POINTS } from "../data/paperData";
-import { Copy, Check, Download, Printer, BookCheck, ShieldCheck } from "lucide-react";
+import { ExportMenu } from "./ExportMenu";
+import { Copy, Check, BookCheck } from "lucide-react";
 
 export const PaperViewer: React.FC = () => {
   const [copied, setCopied] = useState<boolean>(false);
+
+  const paperFormats = [
+    { label: "PDF", ext: "pdf" as const },
+    { label: "Markdown", ext: "md" as const },
+    { label: "DOCX", ext: "docx" as const },
+    { label: "HTML", ext: "html" as const },
+    { label: "TXT", ext: "txt" as const },
+    { label: "Print", ext: "print" as const },
+  ];
 
   const handleCopyMarkdown = async () => {
     try {
@@ -13,14 +23,9 @@ export const PaperViewer: React.FC = () => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Fallback
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
-  };
-
-  const handlePrint = () => {
-    window.print();
   };
 
   return (
@@ -41,12 +46,12 @@ export const PaperViewer: React.FC = () => {
               </span>
             </div>
             <p className="text-xs text-stone-600 mt-0.5">
-              Compliant with ScienceDirect Data in Brief Guide for Authors • 20 Marks Allocation
+              Compliant with ScienceDirect Data in Brief Guide for Authors • Multi-format Exports Available
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <button
             onClick={handleCopyMarkdown}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-stone-700 bg-stone-50 hover:bg-stone-100 border border-stone-200 rounded-lg transition-colors shadow-2xs"
@@ -55,22 +60,11 @@ export const PaperViewer: React.FC = () => {
             <span>{copied ? "Copied Markdown" : "Copy Markdown"}</span>
           </button>
 
-          <button
-            onClick={handlePrint}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-stone-700 bg-stone-50 hover:bg-stone-100 border border-stone-200 rounded-lg transition-colors shadow-2xs"
-          >
-            <Printer className="w-3.5 h-3.5" />
-            <span>Print / Save as PDF</span>
-          </button>
-
-          <a
-            href="/downloads/data_in_brief_siavonga.md"
-            download="data_in_brief_siavonga.md"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-white bg-emerald-700 hover:bg-emerald-800 rounded-lg transition-colors shadow-2xs"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Download .md</span>
-          </a>
+          <ExportMenu
+            basePath="/downloads/data_in_brief_siavonga"
+            filenameBase="data_in_brief_siavonga"
+            formats={paperFormats}
+          />
         </div>
       </div>
 
@@ -88,15 +82,22 @@ export const PaperViewer: React.FC = () => {
           </h1>
 
           <div className="text-sm font-medium text-stone-800">
-            <span className="font-semibold text-emerald-800">Project Team #48</span> (Bornface K., et al.)
+            <span className="font-semibold text-emerald-800">Project Team #48</span>
+          </div>
+
+          <div className="text-xs text-stone-800">
+            <strong>Bornface Kangombe</strong> (Computer Number: <code className="font-mono">2022064526</code>, Group: 48)
           </div>
 
           <div className="text-xs text-stone-600 italic">
-            Department of Computer Science, School of Natural Sciences, The University of Zambia, Great East Road Campus, P.O. Box 32379, Lusaka, Zambia
+            Department of Computing and Infomatics, School of Natural Sciences, The University of Zambia, Great East Road Campus, P.O. Box 32379, Lusaka, Zambia
           </div>
 
-          <div className="text-xs text-stone-500">
-            <span className="font-semibold">Corresponding author:</span> group48@unza.zm / bornfacek135@gmail.com
+          <div className="text-xs text-stone-700">
+            <span className="font-semibold">Corresponding author:</span>{" "}
+            <a href="mailto:bornface.kangombe@cs.unza.zm" className="text-emerald-700 hover:underline font-mono">
+              bornface.kangombe@cs.unza.zm
+            </a>
           </div>
         </div>
 
@@ -137,101 +138,93 @@ export const PaperViewer: React.FC = () => {
           </div>
         </section>
 
-        {/* Value of the Data */}
-        <section className="space-y-3 font-sans">
-          <h2 className="text-base font-bold text-stone-900 border-b border-stone-200 pb-1">
+        {/* 1. Value of the Data */}
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold text-stone-900 font-sans border-b border-stone-200 pb-1">
             1. Value of the Data
           </h2>
-          <ul className="space-y-2 list-disc pl-5 text-xs sm:text-sm text-stone-700">
+          <ul className="space-y-2 list-disc list-outside ml-5 text-sm sm:text-base text-stone-800">
             {PAPER_VALUE_POINTS.map((pt, idx) => {
-              const [heading, ...rest] = pt.split(":");
+              const colonIdx = pt.indexOf(":");
+              const title = colonIdx !== -1 ? pt.slice(0, colonIdx) : "";
+              const detail = colonIdx !== -1 ? pt.slice(colonIdx + 1) : pt;
               return (
                 <li key={idx} className="leading-relaxed">
-                  <strong className="text-stone-900 font-semibold">{heading}:</strong>
-                  {rest.join(":")}
+                  {title && <strong className="font-sans font-bold text-stone-900">{title}: </strong>}
+                  <span>{detail}</span>
                 </li>
               );
             })}
           </ul>
         </section>
 
-        {/* Objective */}
-        <section className="space-y-2 font-sans text-xs sm:text-sm text-stone-700">
-          <h2 className="text-base font-bold text-stone-900 border-b border-stone-200 pb-1">
+        {/* 2. Objective */}
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold text-stone-900 font-sans border-b border-stone-200 pb-1">
             2. Objective
           </h2>
-          <p className="leading-relaxed">
-            Under Zambia's revised decentralisation framework (enacted via the Local Government Act No. 2 of 2019 and amended by Acts No. 28 of 2023 and No. 76 of 2026), local authorities have transitioned from purely administrative satellites into autonomous service-delivery engines managing unprecedented capital budgets. Despite statutory mandates for public transparency, citizens and researchers encounter severe data fragmentation. Siavonga Town Council publishes project updates and tender disclosures across disparate, unstructured web dispatches. This study extracted, cleaned, and structured these digital footprints into five unified, pipe-delimited datasets conforming to open scientific data standards.
+          <p className="text-sm sm:text-base leading-relaxed text-stone-800">
+            Under Zambia&apos;s revised decentralisation framework (enacted via the Local Government Act No. 2 of 2019 and amended by Acts No. 28 of 2023 and No. 76 of 2026), local authorities have transitioned from purely administrative satellites into autonomous service-delivery engines managing unprecedented capital budgets. Despite statutory mandates for public transparency, citizens and researchers encounter severe data fragmentation. This project sought to extract, structure, validate, and publish a machine-readable data repository for Siavonga Town Council to bridge the transparency deficit.
           </p>
         </section>
 
-        {/* Data Description */}
-        <section className="space-y-3 font-sans text-xs sm:text-sm text-stone-700">
-          <h2 className="text-base font-bold text-stone-900 border-b border-stone-200 pb-1">
+        {/* 3. Data Description */}
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold text-stone-900 font-sans border-b border-stone-200 pb-1">
             3. Data Description
           </h2>
-          <p className="leading-relaxed">
-            The dataset comprises five tabular files formatted as pipe-delimited (<code className="bg-stone-100 px-1 py-0.5 rounded font-mono text-xs">|</code>) CSV files with UTF-8 encoding:
+          <p className="text-sm sm:text-base leading-relaxed text-stone-800">
+            The curated dataset package consists of five pipe-separated (<code className="font-mono text-xs bg-stone-100 px-1 py-0.5 rounded">|</code>) CSV files:
           </p>
-          <div className="space-y-2 pl-3 border-l-2 border-emerald-700">
-            <div>
-              <strong className="text-stone-900 font-mono">1. db-unza26-csc4792-siavonga_town_council_cdf_projects.csv</strong>: 14 records documenting capital and empowerment investments totaling ZMW 33,450,000 across Education & Skills, Health, Heavy Machinery, Water & Sanitation, and Rural Access Roads.
+          <div className="space-y-3 font-sans text-xs sm:text-sm">
+            <div className="p-3.5 bg-stone-50 rounded-lg border border-stone-200">
+              <span className="font-bold text-stone-900 font-mono">1. db-unza26-csc4792-siavonga_town_council_cdf_projects.csv</span>
+              <p className="text-stone-700 mt-1">14 projects totaling ZMW 33,450,000 across Education, Health, Equipment, and Water sectors with verified project costs and descriptions.</p>
             </div>
-            <div>
-              <strong className="text-stone-900 font-mono">2. db-unza26-csc4792-siavonga_town_council_zdsp_projects.csv</strong>: 5 records of World Bank-funded devolution projects totaling ZMW 11,200,000, including Chimutengo Market, Bus Station modernization, and civic GIS land digitization with geospatial coordinates.
+            <div className="p-3.5 bg-stone-50 rounded-lg border border-stone-200">
+              <span className="font-bold text-stone-900 font-mono">2. db-unza26-csc4792-siavonga_town_council_zdsp_projects.csv</span>
+              <p className="text-stone-700 mt-1">5 devolution infrastructure projects totaling ZMW 11,200,000 under the World Bank $210M facility.</p>
             </div>
-            <div>
-              <strong className="text-stone-900 font-mono">3. db-unza26-csc4792-siavonga_town_council_financial_records.csv</strong>: 10 records tracking ZMW 206,450,000 in approved budgets, LGEF recurrent allocations (Act 28 of 2023), kapenta fishing rig levies, tourism bed levies, and property rates.
+            <div className="p-3.5 bg-stone-50 rounded-lg border border-stone-200">
+              <span className="font-bold text-stone-900 font-mono">3. db-unza26-csc4792-siavonga_town_council_financial_records.csv</span>
+              <p className="text-stone-700 mt-1">10 records totaling ZMW 206,450,000 capturing statutory LGEF transfers, annual civic budgets, fishing rig levies, and tourism taxes.</p>
             </div>
-            <div>
-              <strong className="text-stone-900 font-mono">4. db-unza26-csc4792-siavonga_town_council_administrative_data.csv</strong>: 1 composite record recording civic leadership, census population (66,030), and statutory vision and mission statements.
+            <div className="p-3.5 bg-stone-50 rounded-lg border border-stone-200">
+              <span className="font-bold text-stone-900 font-mono">4. db-unza26-csc4792-siavonga_town_council_administrative_data.csv</span>
+              <p className="text-stone-700 mt-1">Council institutional governance data: population (66,030), Chairperson, Secretary, and strategic vision.</p>
             </div>
-            <div>
-              <strong className="text-stone-900 font-mono">5. db-unza26-csc4792-siavonga_town_council_news_articles.csv</strong>: 5 full un-truncated narrative news releases providing the unstructured textual corpus.
+            <div className="p-3.5 bg-stone-50 rounded-lg border border-stone-200">
+              <span className="font-bold text-stone-900 font-mono">5. db-unza26-csc4792-siavonga_town_council_news_articles.csv</span>
+              <p className="text-stone-700 mt-1">5 full-text municipal news dispatches and official press announcements.</p>
             </div>
           </div>
         </section>
 
-        {/* Experimental Design, Materials and Methods */}
-        <section className="space-y-3 font-sans text-xs sm:text-sm text-stone-700">
-          <h2 className="text-base font-bold text-stone-900 border-b border-stone-200 pb-1">
+        {/* 4. Experimental Design */}
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold text-stone-900 font-sans border-b border-stone-200 pb-1">
             4. Experimental Design, Materials and Methods
           </h2>
-          <div className="space-y-2 leading-relaxed">
+          <div className="space-y-3 text-sm sm:text-base leading-relaxed text-stone-800">
             <p>
-              <strong>Data Scraping:</strong> We constructed a breadth-first search (BFS) crawler in Python 3.12 utilizing <code className="bg-stone-100 px-1 py-0.5 rounded font-mono text-xs">requests</code> and <code className="bg-stone-100 px-1 py-0.5 rounded font-mono text-xs">BeautifulSoup4</code>. A politeness delay of 0.8 seconds was enforced between consecutive HTTP GET requests to respect server bandwidth.
+              A breadth-first search (BFS) crawler was constructed using Python 3.12, BeautifulSoup4, and Requests. Traversal was bounded strictly to the canonical domain <code className="font-mono text-xs bg-stone-100 px-1 py-0.5 rounded">https://www.siavongacouncil.gov.zm</code> to ensure respect of institutional robots.txt directives and server capacity.
             </p>
             <p>
-              <strong>Regex Parsing:</strong> To extract monetary values from heterogeneous text, we compiled regular expressions capturing <code className="bg-stone-100 px-1 py-0.5 rounded font-mono text-xs">K</code>, <code className="bg-stone-100 px-1 py-0.5 rounded font-mono text-xs">ZMW</code>, and words (e.g., &quot;over six million Kwacha&quot; $\to$ 6,000,000.00 ZMW).
-            </p>
-            <p>
-              <strong>Sanity Assertions:</strong> Quality assurance scripts in the Jupyter notebook asserted: (1) All financial amounts are strictly positive ($&gt; 0$); (2) No unescaped delimiter pipes exist within string payloads; (3) Fiscal years conform to the range 2020–2026.
+              Currency entities were transformed into standardized Zambian Kwacha (ZMW) floats using regular expression pipelines with unit-multiplier expansion logic. Quality assurance assertions were applied to ensure non-empty strings, positive numeric values, and valid HTTP canonical sources.
             </p>
           </div>
         </section>
 
-        {/* Ethics & References */}
-        <div className="pt-6 border-t border-stone-200 space-y-4 font-sans text-xs text-stone-600">
-          <div className="flex items-center gap-2 text-stone-900 font-semibold">
-            <ShieldCheck className="w-4 h-4 text-emerald-700" />
-            <span>Ethics Statement & Declaration of Competing Interests</span>
-          </div>
-          <p>
-            The authors declare no competing financial or personal interests. Only publicly available information posted on the council&apos;s open website was collected. No private data or citizen credentials were accessed.
+        {/* Acknowledgements */}
+        <section className="space-y-2 border-t border-stone-200 pt-6">
+          <h2 className="text-lg font-bold text-stone-900 font-sans">Acknowledgements</h2>
+          <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+            The authors acknowledge Mr. Lighton Phiri, Course Instructor for CSC 4792 (Data Mining and Warehousing), Department of Computing and Infomatics, University of Zambia, for providing the assignment framework and exemplar dataset standard. We also acknowledge the SMART Zambia Institute and Siavonga Town Council for maintaining digital civic repositories.
           </p>
-
-          <div className="pt-2 space-y-1">
-            <span className="font-semibold text-stone-900">References:</span>
-            <ol className="list-decimal pl-5 space-y-1 text-[11px] text-stone-600">
-              <li>Local Government Act, 2019 (Act No. 2 of 2019). Republic of Zambia.</li>
-              <li>Local Government (Amendment) Act, 2023 (Act No. 28 of 2023). Republic of Zambia.</li>
-              <li>Local Government (Amendment) Act, 2026 (Act No. 76 of 2026). Republic of Zambia.</li>
-              <li>Phiri, L. (2026). <em>A Multi-Source Dataset for CS1 Failure Prediction</em> [Dataset]. Kaggle.</li>
-              <li>Siavonga Town Council. (2026). Official Municipal Portal. https://www.siavongacouncil.gov.zm</li>
-            </ol>
-          </div>
-        </div>
+        </section>
       </div>
     </div>
   );
 };
+
+export default PaperViewer;
