@@ -18,12 +18,24 @@ export default defineConfig({
     strictPort: false,
     hmr: true,
     watch: {},
+    allowedHosts: [
+      "siavonga-town-council-data-mining-portal.onrender.com",
+      "siavonga-csc4792-portal.onrender.com",
+      "localhost",
+      "127.0.0.1",
+    ],
   },
 
   preview: {
     port: Number(process.env.PORT) || 4173,
     host: "0.0.0.0",
     strictPort: false,
+    allowedHosts: [
+      "siavonga-town-council-data-mining-portal.onrender.com",
+      "siavonga-csc4792-portal.onrender.com",
+      "localhost",
+      "127.0.0.1",
+    ],
   },
 
   build: {
