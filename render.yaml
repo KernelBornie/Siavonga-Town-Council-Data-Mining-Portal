@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: siavonga-csc4792-portal
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    autoDeploy: true
+    branch: main
+    envVars:
+      - key: VITE_APP_URL
+        value: https://siavonga-csc4792-portal.onrender.com
+      - key: VITE_APP_TITLE
+        value: Siavonga Town Council Data Mining Workbench
+      - key: VITE_PROJECT_TEAM
+        value: "48"
+      - key: VITE_COUNCIL_NAME
+        value: Siavonga Town Council
+      - key: VITE_PROVINCE
+        value: Southern Province, Zambia
+      - key: VITE_SOURCE_URL
+        value: https://www.siavongacouncil.gov.zm
+      - key: VITE_SCRAPE_DATE
+        value: "2026-09-12"
+      - key: VITE_DEFAULT_CURRENCY
+        value: ZMW
+      - key: VITE_CURRENCY_SYMBOL
+        value: K
+      - key: VITE_LOCALE
+        value: en-ZM
+      - key: VITE_TIMEZONE
+        value: Africa/Lusaka
