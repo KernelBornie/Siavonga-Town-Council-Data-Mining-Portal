@@ -1,0 +1,49 @@
+{
+  "council": "Siavonga Town Council",
+  "base_url": "https://www.siavongacouncil.gov.zm",
+  "scrape_date": "2026-09-12",
+  "project_team": "Group #48",
+  "course": "2025/26 CSC 4792: Data Mining and Warehousing",
+  "institution": "Department of Computer Science, University of Zambia",
+  "crawl": {
+    "max_pages": 250,
+    "delay_s": 0.8,
+    "html_pages": 142,
+    "pdf_pages": 18,
+    "user_agent": "UNZA-CSC4792-ResearchBot/1.0 (academic; group48@unza.zm)"
+  },
+  "outputs": {
+    "cdf_projects": {
+      "filename": "db-unza26-csc4792-siavonga_town_council_cdf_projects.csv",
+      "rows": 14,
+      "cols": 10,
+      "total_zmw": 33450000
+    },
+    "zdsp_projects": {
+      "filename": "db-unza26-csc4792-siavonga_town_council_zdsp_projects.csv",
+      "rows": 5,
+      "cols": 11,
+      "total_zmw": 11200000
+    },
+    "financial_records": {
+      "filename": "db-unza26-csc4792-siavonga_town_council_financial_records.csv",
+      "rows": 10,
+      "cols": 9,
+      "total_zmw": 206450000
+    },
+    "administrative_data": {
+      "filename": "db-unza26-csc4792-siavonga_town_council_administrative_data.csv",
+      "rows": 1,
+      "cols": 11
+    },
+    "news_articles": {
+      "filename": "db-unza26-csc4792-siavonga_town_council_news_articles.csv",
+      "rows": 5,
+      "cols": 5
+    }
+  },
+  "naming_convention": "db-unza26-csc4792-[DESCRIPTION].csv",
+  "separator": "|",
+  "encoding": "utf-8",
+  "license": "CC BY 4.0"
+}

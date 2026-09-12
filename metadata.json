@@ -1,0 +1,6 @@
+{
+  "name": "Siavonga Town Council Data Mining Portal",
+  "description": "UNZA CSC 4792 Data Mining and Warehousing Mini Project for Group 48 (Siavonga Town Council) featuring Kaggle datasets, Jupyter scraper notebook, Data in Brief paper, and analytical workbench.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
